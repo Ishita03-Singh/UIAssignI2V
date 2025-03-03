@@ -1,0 +1,75 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--widget-bg-color);
+  padding: 20px;
+  // padding-right: 0px;
+
+  .heading {
+    font-weight: 500;
+    font-size: 32px;
+  }
+}
+
+.details-container {
+  display: flex;
+  gap: 20px;
+  // padding-left: 30px;
+  // background-color: azure;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+
+  // background-color: aqua;
+  width: 100%;
+}
+
+.main-grid {
+  display: flex;
+  gap: 20px;
+  
+}
+
+.user-details-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex: 1;
+
+  .column {
+    width: 100%;
+  }
+}
+
+.small-screen-right-side-container {
+  display: none;
+}
+
+
+.right-container {
+  display: flex;
+  // width: 100%;
+  // background-color: gold;
+  min-width: 325px;
+  /* Keep it separate on wide screens */
+}
+
+/* Responsive behavior for screens between 0px and 1650px */
+@media (min-width: 0px) and (max-width: 1650px) {
+
+  .user-details-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .small-screen-right-side-container {
+    display: flex;
+  }
+
+  .right-container {
+    display: none;
+  }
+}

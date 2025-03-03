@@ -1,0 +1,12 @@
+<div class="quick-add-container">
+    <button class="quick-add-btn" (click)="toggleMenu()">
+      <i class="icon-plus"></i>
+    </button>
+    
+    <div class="quick-add-menu" *ngIf="isOpen">
+      <div class="menu-item" *ngFor="let item of menuItems">
+        <i [ngClass]="'icon-' + item.icon"></i>
+        <span>{{ item.label }}</span>
+      </div>
+    </div>
+  </div>

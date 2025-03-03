@@ -1,0 +1,225 @@
+/* Base Sidebar Styles */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  gap:12px;
+
+  /* Header Styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    // border-bottom: 1px solid;
+
+    .company-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .company-name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .admin-badge {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+  }
+  .navigation {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 10px;
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      margin: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      font-weight: 400;
+    }
+    
+    .menu-item-conatiner {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .menu-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      mask-image: var(--icon-url);
+      -webkit-mask-image: var(--icon-url);
+      mask-size: contain;  /* Ensures the image fits within the element */
+      -webkit-mask-size: contain;
+      mask-repeat: no-repeat;  /* Prevents tiling */
+      -webkit-mask-repeat: no-repeat;
+      mask-position: center;  /* Centers the image */
+      -webkit-mask-position: center;
+      background-color: var(--icon-color); 
+    }
+    
+    .menu-label {
+      font-size: 18px;
+      line-height: 22.68px;
+      letter-spacing: 0%;
+    
+    }
+  }
+  /* Footer Styles */
+  .footer {
+    padding: 16px;
+    border-top: 1px solid;
+    gap: 16px;
+    padding: 20px;
+
+    .theme-toggle {
+      display: flex;
+      justify-content: space-between;
+      .toggle-option {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 32px;
+        // border: 1px solid #EEF2FF33;
+        cursor: pointer;
+        gap: 8px;
+        padding: 10px;
+        border-width: 1px;
+        .menu-icon {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          mask-image: var(--icon-url);
+          -webkit-mask-image: var(--icon-url);
+          mask-size: contain;  /* Ensures the image fits within the element */
+          -webkit-mask-size: contain;
+          mask-repeat: no-repeat;  /* Prevents tiling */
+          -webkit-mask-repeat: no-repeat;
+          mask-position: center;  /* Centers the image */
+          -webkit-mask-position: center;
+          background-color: var(--icon-color); 
+        }
+        img {
+          width: 20px;
+          height: 20px;
+        }
+        .toggle-label {
+          font-weight: 500;
+          font-size: 14px;
+          letter-spacing: 0%;
+          // color: #3DD5C8;
+        
+        }
+      }
+    }
+
+
+  }
+
+}
+
+
+
+
+/* Light Theme Styles */
+.light-theme {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.light-theme .header {
+  border-bottom-color: #e9ecef;
+}
+
+.light-theme .admin-badge {
+  background-color: #e9ecef;
+  color: #9b9da7;
+  border: 1px solid #EEF2FF33;
+}
+
+.light-theme .menu-item:hover {
+  background-color: #e9ecef;
+}
+
+.light-theme .menu-item.active {
+  .menu-icon{
+    background-color: white;
+  }
+  background-color: #4ade80;
+  font-weight: 500;
+  color: #fff;
+}
+
+.light-theme .footer {
+  border-top-color: #e9ecef;
+}
+
+.light-theme .toggle-option.selected {
+  background-color: #e9ecef;
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+  background-color: #1e1e1e;
+  color: #f8f9fa;
+}
+
+.dark-theme .header {
+  border-bottom-color: #333333;
+}
+
+.dark-theme .admin-badge {
+  // background-color: #333333;
+  color: #9b9da7;
+  border: 1px solid #EEF2FF33;
+}
+
+.dark-theme .menu-item:hover {
+  background-color: #333333;
+}
+
+.dark-theme .menu-item.active {
+  .menu-icon{
+    background-color: black;
+  }
+  background-color: #1EBFB3;
+  font-weight: 500;
+  color: #1e1e1e;
+}
+
+.dark-theme .footer {
+  border-top-color: #333333;
+}
+
+.dark-theme .toggle-option.selected {
+  // background-color: #333333;
+  border:  1px solid #EEF2FF33;
+}

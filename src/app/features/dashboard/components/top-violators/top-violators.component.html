@@ -1,0 +1,25 @@
+<div class="card top-violators">
+  <div class="card-header">
+    <span class="card-title">Top violators</span>
+
+    <app-dropdown-menu [options]="timeOptions" [selectedOption]="'This Year'" (optionSelected)="onOptionSelect($event)">
+      <ng-template #optionTemplate let-option>
+        <div class="custom-option">
+          <img *ngIf="option.icon" [src]="'assets/icons/' + option.icon" alt="{{ option.label }}">
+          <span>{{ option.label }}</span>
+        </div>
+      </ng-template>
+    </app-dropdown-menu>
+  </div>
+
+  <div class="card-body">
+    <div class="user-list">
+      <app-user-card *ngFor="let user of topViolators" [user]="user" [showExpenseCount]="true">
+      </app-user-card>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <span  class="link">View All</span>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="main-container">
+  <header>
+    <span class="heading">Dashboard</span>
+  </header>
+  <div class="details-container">
+    <div class="left-container">
+      <!-- Stats Cards -->
+      <app-stats-card></app-stats-card>
+
+      <!-- Main Content Grid -->
+      <div class="main-grid">
+        <div class="user-details-container">
+          <div class="column">
+            <app-top-violators></app-top-violators>
+          </div>
+          <div class="column">
+            <app-overall-summary></app-overall-summary>
+          </div>
+        </div>
+        <div class="small-screen-right-side-container">
+          <app-top-spenders></app-top-spenders>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side container -->
+    <div class="right-container">
+      <app-top-spenders></app-top-spenders>
+    </div>
+  </div>
+</div>

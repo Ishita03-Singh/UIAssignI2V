@@ -1,0 +1,124 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 0;
+    padding: 20px 32px 20px 32px;
+    gap: 56px;
+    background: var(--widget-bg-color);
+    
+    .page-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+    }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      
+      .icon-btn {
+        border-radius: 50%;
+        background-color: #f4f6f8;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+        color: var(--text-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        transition: all 0.3s ease-out; /* Smooth transition */
+        .default-icon {
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+  justify-content: flex-start;
+          transition: opacity 0.3s ease-out;
+        }
+        .hover-icon {
+          display: none;
+          transition: opacity 0.3s ease-out;
+        }
+        
+        &:hover {
+          .hover-icon {
+            display: inline-flex;
+            
+          }
+          background-color: var(--btn-hover-bg);
+          border-radius: 32px; 
+          flex-direction: row;
+          width: fit-content;
+          // // width: 120px;
+          // padding: 16px 4px;
+          gap: 4px;
+          padding: 10px;
+      
+          
+        }
+        
+        .badge {
+          position: absolute;
+          top: 3px;
+          right: 4px;
+          background-color: var(--badge-danger);
+          height: 8px;
+          width: 8px;
+          border-radius: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      
+      .user-profile {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        cursor: pointer;
+        font-size: 18px;
+      
+        
+        span {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+.custom-option{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-wrap-mode: nowrap;
+}
+
+.custom-header{
+  margin: 5px 0px;
+
+  .custom-option-user-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .custom-option-user-info{
+    display: flex;
+    flex-direction: column;
+
+    .custom-option-user-name{
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    .custom-option-user-email{
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+  }
+}
+
+

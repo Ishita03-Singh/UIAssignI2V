@@ -1,0 +1,149 @@
+<div class="reimbursement-container">
+  <header>
+    <span class="heading">Reimbursement</span>
+    <div class="header-actions">
+      <div class="search-container">
+        <input type="text" placeholder="Search..." (input)="search()">
+      </div>
+      <button class="btn-icon"><img src="assets/icons/setting.svg" /></button>
+
+    </div>
+  </header>
+
+  <div class="table-container">
+    <div class="tabs">
+      <div class="tab-list">
+        <button [class.active]="activeTab === 'All'"
+          (click)="setActiveTab('All')">
+          All
+        </button>
+        <button [class.active]="activeTab === 'Awaiting Reimbursement'"
+          (click)="setActiveTab('Awaiting Reimbursement')">
+          Awaiting Reimbursement
+        </button>
+        <button [class.active]="activeTab === 'Reimbursed'" (click)="setActiveTab('Reimbursed')">
+          Reimbursed
+        </button>
+      </div>
+
+      <div class="tab-actions">
+        <label class="select-wrapper">
+          <span>Select Role</span>
+          <select>
+            <option value="all">All</option>
+            <option value="administration">Administration</option>
+            <option value="marketing">Marketing</option>
+            <option value="sales">Sales</option>
+            <option value="engineering">Engineering</option>
+          </select>
+        </label>
+
+        <button class="btn-icon"><img src="assets/icons/filter.svg" /></button>
+        <button class="btn-icon"><img src="assets/icons/download.svg" /></button>
+
+      </div>
+    </div>
+
+    <div class="table-data-container">
+      <table>
+        <thead>
+          <tr>
+            <th class="checkbox-col">
+              <input type="checkbox">
+            </th>
+            <th (click)="sortData('description')">
+              Description
+              <i class="sort-icon" *ngIf="sortColumn === 'description'">
+                {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </i>
+            </th>
+            <th (click)="sortData('date')">
+              Date
+              <i class="sort-icon" *ngIf="sortColumn === 'date'">
+                {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </i>
+            </th>
+            <th (click)="sortData('category')">
+              Category
+              <i class="sort-icon" *ngIf="sortColumn === 'category'">
+                {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </i>
+            </th>
+            <th (click)="sortData('username')">
+              Username
+              <i class="sort-icon" *ngIf="sortColumn === 'username'">
+                {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </i>
+            </th>
+            <th (click)="sortData('department')">
+              Department
+              <i class="sort-icon" *ngIf="sortColumn === 'department'">
+                {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </i>
+            </th>
+            <th (click)="sortData('lastUpdate')">
+              Last update
+              <i class="sort-icon" *ngIf="sortColumn === 'lastUpdate'">
+                {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </i>
+            </th>
+            <th (click)="sortData('status')">
+              Status
+              <i class="sort-icon" *ngIf="sortColumn === 'status'">
+                {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </i>
+            </th>
+            <th (click)="sortData('amount')">
+              Amount
+              <i class="sort-icon" *ngIf="sortColumn === 'amount'">
+                {{ sortDirection === 'asc' ? '↑' : '↓' }}
+              </i>
+            </th>
+            <th class="actions-col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredReimbursements">
+            <td class="checkbox-col">
+              <input type="checkbox">
+            </td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.category }}</td>
+            <td class="user-col">
+              <div class="user-info">
+                <div class="avatar" [style.backgroundImage]="'url(' + item.userAvatar + ')'"></div>
+                <span>{{ item.username }}</span>
+              </div>
+            </td>
+            <td>{{ item.department }}</td>
+            <td>{{ item.lastUpdate }}</td>
+            <td>
+              <span class="status-badge" [class]="getStatusClass(item.status)">
+                {{ item.status }}
+              </span>
+            </td>
+            <td>{{ item.amount }}</td>
+            <td class="actions-col">
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <div class="page-info">
+        Page {{ currentPage }} - 15 of {{ totalPages }}
+      </div>
+      <div class="page-controls">
+        <button class="icon-prev" (click)="prevPage()" [disabled]="currentPage === 1">
+          <img src="assets/icons/arrow-left.svg"  />
+        </button>
+        <button class="icon-next" (click)="nextPage()" [disabled]="currentPage === totalPages">
+          <img src="assets/icons/arrow-right.svg"  />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

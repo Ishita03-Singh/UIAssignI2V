@@ -1,0 +1,15 @@
+<div class="user-card">
+  <div class="user-details">
+    <div class="user-avatar">
+      <img [src]="user.avatar" [alt]="user.name">
+    </div>
+    <div class="user-info">
+      <h4 class="user-name">{{ user.name }}</h4>
+      <p class="user-position">{{ user.position }}</p>
+    </div>
+  </div>
+  <div class="user-amount">
+    <span class="amount">₹ {{ user.totalExpenses | number }}</span>
+    <span *ngIf="showExpenseCount" class="expense-count">({{ user.expenseCount }} Expenses)</span>
+  </div>
+</div>

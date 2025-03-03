@@ -1,0 +1,68 @@
+.top-spenders {
+  background-color: var(--spender-card-bg);
+  border-radius: 12px;
+  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  // height: 100%;
+  min-width: 385px;
+  // border: 1px solid var(--common-border-color);
+  text-wrap-mode: nowrap;
+  display: flex;
+  flex-direction: column;
+
+  // background-color:blue;
+  gap:20px;
+  
+  .card-header {
+    padding: 16px 24px 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    height: fit-content;
+    border-bottom: 1px solid var(--common-border-color);
+    
+    .card-title {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--user-stats-title-color);
+    }
+    
+    .time-selector {
+      display: flex;
+      align-items: center;
+      color: var(--user-stats-title-color);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+  }
+  
+  .card-body {
+    gap:8px;
+    // background-color: rebeccapurple;
+    
+    .list-header {
+      display: flex;
+      justify-content: space-between;
+      // padding: 8px 0;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      // background-color: aqua;
+      // border-bottom: 1px solid red;
+      padding: 0px 24px 0px 24px;
+      gap:24px;
+      
+      .header-username {
+        flex: 1;
+      }
+      
+      .header-amount {
+        text-align: right;
+      }
+    }
+    
+    .user-list {
+      overflow-y: auto;
+    }
+  }
+}

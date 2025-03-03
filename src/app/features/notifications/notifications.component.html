@@ -1,0 +1,31 @@
+<app-dropdown-menu [showSelectionValue]="false" [isMenu]="false"
+[(isOpen)]="isQuickMenuDropdownOpen">
+  <ng-template #headerTemplate>
+    <div class="tabs">
+      <div class="tab-list">
+        <button [class.active]="activeTab === 'notifications'" (click)="setActiveTab('notifications')">
+          Notifications
+        </button>
+        <button [class.active]="activeTab === 'announcements'" (click)="setActiveTab('announcements')">
+          Announcements
+        </button>
+      </div>
+      <div class="tab-actions">
+        <button class="btn-icon"><img src="assets\icons\close-circle.svg" /></button>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template *ngIf="activeTab === 'notifications'" #optionTemplate let-option>
+    <div class="notifications-list">
+      <app-notification-card *ngFor="let notification of notifications" [notification]="notification">
+      </app-notification-card>
+    </div>
+  </ng-template>
+
+  <ng-template *ngIf="activeTab === 'announcements'" #optionTemplate let-option>
+    <div class="announcements-list">
+      <p class="empty-state">No announcements at this time.</p>
+    </div>
+  </ng-template>
+</app-dropdown-menu>

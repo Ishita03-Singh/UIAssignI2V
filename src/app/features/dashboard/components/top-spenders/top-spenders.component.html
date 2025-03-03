@@ -1,0 +1,27 @@
+<div class="card top-spenders">
+  <div class="card-header">
+    <span class="card-title">Top spending users</span>
+    <app-dropdown-menu [options]="timeOptions" [selectedOption]="'This Month'" (optionSelected)="onOptionSelect($event)">
+      <ng-template #optionTemplate let-option>
+        <div class="custom-option">
+          <img *ngIf="option.icon" [src]="'assets/icons/' + option.icon" alt="{{ option.label }}">
+          <span>{{ option.label }}</span>
+        </div>
+      </ng-template>
+    </app-dropdown-menu>
+  </div>
+  
+  <div class="card-body">
+    <div class="list-header">
+      <div class="header-username">USERNAME</div>
+      <div class="header-amount">AMOUNT (INR)</div>
+    </div>
+    
+    <div class="user-list">
+      <app-user-card 
+        *ngFor="let user of topSpenders" 
+        [user]="user">
+      </app-user-card>
+    </div>
+  </div>
+</div>

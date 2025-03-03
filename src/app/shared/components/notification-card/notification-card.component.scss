@@ -1,0 +1,42 @@
+.notification-card {
+  display: flex;
+  border: 1px solid var(--common-border-color);
+  border-radius: 12px;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  width: 368px;
+
+  &:hover {
+    border-left: 3px solid #25A79C
+  }
+
+  .notification-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+    background-color: #FFF3F0;
+  }
+
+  .notification-content {
+    flex: 1;
+
+    .message {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+      color: var(--text-color);
+    }
+
+    .timestamp {
+      margin: 0;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  }
+}

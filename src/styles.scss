@@ -1,0 +1,120 @@
+:root {
+    --card-bg : #fff;
+    --spender-card-bg:#EEF3F7;
+    --stats-text-color: #1B1D21;
+    --stats-link-color: #25A79C;
+    --stats-link-underline-color: #17696233;
+    
+    --text-muted: #6C757D;
+    --common-border-color : #E3EAF4;
+    --light-border-color: #E3EAF480;
+
+    --user-stats-title-color: #2D2A2B;
+    --dropdown-menu-bg : #fff; 
+    --dropdown-row-seperator : #E3EAF4; 
+    --dropdown-menu-item-hover : #25A79C; 
+    --dropdown-menu-item-hover-text : #fff; 
+
+    --btn-hover-bg : #25A79C;
+    --badge-danger: red;
+
+    --widget-bg-color: #fff;
+    --body-bg-color: #EEF3F7;
+  }
+
+  body{
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/static/Outfit-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/static/Outfit-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/static/Outfit-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/static/Outfit-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/static/Outfit-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/static/Outfit-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/static/Outfit-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/static/Outfit-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/assets/fonts/Outfit/static/Outfit-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+
+  /* Width of the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;  /* For vertical scrollbar */
+  height: 8px; /* For horizontal scrollbar */
+}
+
+/* Background of the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+/* Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+  

@@ -1,0 +1,34 @@
+<div class="stats-container">
+  <app-status-card 
+    title="Pending reimbursement" 
+    [count]="dashboardStats.pendingReimbursements.count" 
+    [icon]="dashboardStats.pendingReimbursements.icon" 
+    iconColor="secondary"
+    [trend]="dashboardStats.pendingReimbursements.trend"
+    trendPeriod="in last 30 days"
+    linkText="View All Request"
+    linkUrl="/reimbursement?status=pending">
+  </app-status-card>
+  
+  <app-status-card 
+    title="Approved reimbursement" 
+    [count]="dashboardStats.approvedReimbursements.count" 
+    [icon]="dashboardStats.approvedReimbursements.icon" 
+    iconColor="primary"
+    [trend]="dashboardStats.approvedReimbursements.trend"
+    trendPeriod="in last 30 days"
+    linkText="Track All Reimbursement"
+    linkUrl="/reimbursement?status=approved">
+  </app-status-card>
+  
+  <app-status-card 
+    title="Advances request" 
+    [count]="dashboardStats.advancesRequests.count" 
+    [icon]="dashboardStats.advancesRequests.icon" 
+    iconColor="warning"
+    [trend]="dashboardStats.advancesRequests.trend"
+    trendPeriod="in last 30 days"
+    linkText="View All Request"
+    linkUrl="/advances">
+  </app-status-card>
+</div>

@@ -1,0 +1,16 @@
+<div class="profile-dropdown">
+    <div class="user-info">
+      <img [src]="user.avatar" [alt]="user.name" class="avatar">
+      <div class="details">
+        <h4 class="name">{{ user.name }}</h4>
+        <p class="email">{{ user.email }}</p>
+      </div>
+    </div>
+    
+    <div class="menu-items">
+      <a *ngFor="let item of menuItems" [routerLink]="item.route" class="menu-item">
+        <i [ngClass]="'icon-' + item.icon"></i>
+        <span>{{ item.label }}</span>
+      </a>
+    </div>
+  </div>

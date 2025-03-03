@@ -1,0 +1,9 @@
+<div class="notification-card">
+    <div class="notification-icon" [ngClass]="getStatusIconClass()">
+      <img src="assets\images\utility\WalletIcon.svg">
+    </div>
+    <div class="notification-content">
+      <p class="message">{{ notification.message }}</p>
+      <p class="timestamp">{{ notification.timestamp | date:'dd/MM/yyyy hh:mm a' }}</p>
+    </div>
+  </div>
