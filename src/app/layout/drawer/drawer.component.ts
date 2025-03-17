@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ThemeService } from '../../core/services/theme.service';
 import { ThemeMode } from '../../core/constants/theme.constants';
-import { Observable } from 'rxjs';
+import { filter, Observable } from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-drawer',
@@ -12,6 +13,7 @@ export class DrawerComponent {
   @Input() isDarkTheme: boolean = true;
   @Input() companyName: string = 'Company Name';
   theme$: Observable<ThemeMode>;
+  
   @Output() themeChange = new EventEmitter<boolean>();
   @Output() menuItemSelected = new EventEmitter<number>();
   
@@ -25,10 +27,22 @@ export class DrawerComponent {
     { icon: 'assets/icons/setting.svg', label: 'Settings', route: '/settings' }
   ];
   
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService,private router: Router) {
     this.theme$ = this.themeService.theme$;
   }
+  ngOnInit(){
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        this.selectMenuItemRoute(event.url);
+      });
+  }
   
+  selectMenuItemRoute(currentRoute: string) {
+    this.menuItems.forEach(item => {
+      item.active = item.route === currentRoute; 
+    });
+  }
   selectMenuItem(index: number): void {
     this.menuItems.forEach((item, i) => {
       item.active = i === index;
@@ -39,8 +53,4 @@ export class DrawerComponent {
     this.isDarkTheme = isDark;
     this.themeChange.emit(isDark);
   }
-
-  // toggleTheme(): void {
-  //   this.themeService.toggleTheme();
-  // }
 }

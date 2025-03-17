@@ -12,15 +12,14 @@ interface Reimbursement {
   description: string;
 }
 
+
 @Component({
   selector: 'app-reimbursement',
   templateUrl: './reimbursement.component.html',
   styleUrls: ['./reimbursement.component.scss']
 })
 export class ReimbursementComponent implements OnInit {
-  activeTab: string = 'Awaiting Reimbursement';
-  sortColumn: string = '';
-  sortDirection: 'asc' | 'desc' = 'asc';
+  activeTab: string = 'All';
   currentPage: number = 1;
   totalPages: number = 30;
   searchTerm: string = '';
@@ -34,7 +33,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Administration',
       lastUpdate: '25/03/2020',
       status: 'Screening',
-      amount: '£ 1,495',
+      amount: '1,495',
       description: 'Indoor game with referral team'
     },
     {
@@ -45,7 +44,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Product',
       lastUpdate: '23/03/2020',
       status: 'Rejected',
-      amount: '£ 873.00',
+      amount: '873.00',
       description: 'Client meeting in Amelia Hotel'
     },
     {
@@ -56,7 +55,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Management',
       lastUpdate: '25/03/2020',
       status: 'Screening',
-      amount: '£ 5,856',
+      amount: '5,856',
       description: 'Office vehicle for team use'
     },
     {
@@ -67,7 +66,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Marketing',
       lastUpdate: '08/03/2020',
       status: 'Approved',
-      amount: '£ 12,201',
+      amount: '12,201',
       description: 'Business meeting to office'
     },
     {
@@ -78,7 +77,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Sales',
       lastUpdate: '02/03/2020',
       status: 'Archived',
-      amount: '£ 7,743',
+      amount: '7,743',
       description: 'Business lunch with office'
     },
     {
@@ -89,7 +88,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Product',
       lastUpdate: '25/03/2020',
       status: 'Screening',
-      amount: '£ 12,036',
+      amount: '12,036',
       description: 'Conference supplies'
     },
     {
@@ -100,7 +99,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Finances',
       lastUpdate: '23/03/2020',
       status: 'Paid',
-      amount: '£ 62,670',
+      amount: '62,670',
       description: 'Trip to Madrid for business conference'
     },
     {
@@ -111,7 +110,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Customer Service',
       lastUpdate: '05/02/2020',
       status: 'Paid',
-      amount: '£ 3,527',
+      amount: '3,527',
       description: 'Clothing purchase for upcoming event'
     },
     {
@@ -122,7 +121,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Engineering',
       lastUpdate: '25/03/2020',
       status: 'Approved',
-      amount: '£ 18,320',
+      amount: '18,320',
       description: 'Purchase of new computer for team member'
     },
     {
@@ -133,7 +132,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Management',
       lastUpdate: '23/03/2020',
       status: 'Archived',
-      amount: '£ 2,504',
+      amount: '2,504',
       description: 'Business lunch with office'
     },
     {
@@ -144,7 +143,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Administration',
       lastUpdate: '15/02/2020',
       status: 'Paid',
-      amount: '£ 67.22',
+      amount: '67.22',
       description: 'Taxi home after'
     },
     {
@@ -155,7 +154,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Human Resources',
       lastUpdate: '08/02/2020',
       status: 'Rejected',
-      amount: '£ 13,478',
+      amount: '13,478',
       description: 'Electricity bill for one month'
     },
     {
@@ -166,7 +165,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Customer Service',
       lastUpdate: '23/03/2020',
       status: 'Applied',
-      amount: '£ 37,437',
+      amount: '37,437',
       description: 'Business lunch with office'
     },
     {
@@ -177,7 +176,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Administration',
       lastUpdate: '08/02/2020',
       status: 'Approved',
-      amount: '£ 160.50',
+      amount: '160.50',
       description: 'WordPress theme plan'
     },
     {
@@ -188,7 +187,7 @@ export class ReimbursementComponent implements OnInit {
       department: 'Engineering',
       lastUpdate: '08/02/2020',
       status: 'Archived',
-      amount: '£ 3,470',
+      amount: '3,470',
       description: 'Trip to Chennai for business conference'
     }
   ];
@@ -203,29 +202,6 @@ export class ReimbursementComponent implements OnInit {
     this.activeTab = tab;
     // In a real app, this would filter based on tab
     this.filteredReimbursements = [...this.reimbursements];
-  }
-
-  sortData(column: string): void {
-    if (this.sortColumn === column) {
-      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    } else {
-      this.sortColumn = column;
-      this.sortDirection = 'asc';
-    }
-    
-    // Implement sorting logic
-    this.filteredReimbursements.sort((a: any, b: any) => {
-      const valueA = a[column];
-      const valueB = b[column];
-      
-      if (valueA < valueB) {
-        return this.sortDirection === 'asc' ? -1 : 1;
-      }
-      if (valueA > valueB) {
-        return this.sortDirection === 'asc' ? 1 : -1;
-      }
-      return 0;
-    });
   }
 
   search(): void {

@@ -6,7 +6,7 @@ import { INotification } from '../../../core/models/notification.model';
   templateUrl: './notification-card.component.html',
   styleUrls: ['./notification-card.component.scss']
 })
-export class NotificationCardComponent {
+export class NotificationComponent {
   @Input() notification!: INotification;
   
   getStatusIconClass(): string {

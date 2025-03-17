@@ -3,7 +3,8 @@
     <span class="heading">Reimbursement</span>
     <div class="header-actions">
       <div class="search-container">
-        <input type="text" placeholder="Search..." (input)="search()">
+        <input type="text" placeholder="Search..." (input)="search()" >
+        <img src="assets/icons/search.svg" class="icon">
       </div>
       <button class="btn-icon"><img src="assets/icons/setting.svg" /></button>
 
@@ -11,7 +12,7 @@
   </header>
 
   <div class="table-container">
-    <div class="tabs">
+    <div class="head">
       <div class="tab-list">
         <button [class.active]="activeTab === 'All'"
           (click)="setActiveTab('All')">
@@ -27,16 +28,10 @@
       </div>
 
       <div class="tab-actions">
-        <label class="select-wrapper">
-          <span>Select Role</span>
-          <select>
-            <option value="all">All</option>
-            <option value="administration">Administration</option>
-            <option value="marketing">Marketing</option>
-            <option value="sales">Sales</option>
-            <option value="engineering">Engineering</option>
-          </select>
-        </label>
+        <div class="date-container">
+          <img src="assets/icons/calendar.svg" class="icon">
+          <input type="text" placeholder="Select date" (input)="search()">
+        </div>
 
         <button class="btn-icon"><img src="assets/icons/filter.svg" /></button>
         <button class="btn-icon"><img src="assets/icons/download.svg" /></button>
@@ -51,53 +46,31 @@
             <th class="checkbox-col">
               <input type="checkbox">
             </th>
-            <th (click)="sortData('description')">
-              Description
-              <i class="sort-icon" *ngIf="sortColumn === 'description'">
-                {{ sortDirection === 'asc' ? '↑' : '↓' }}
-              </i>
+            <th >
+              Title
             </th>
-            <th (click)="sortData('date')">
+            <th >
               Date
-              <i class="sort-icon" *ngIf="sortColumn === 'date'">
-                {{ sortDirection === 'asc' ? '↑' : '↓' }}
-              </i>
             </th>
-            <th (click)="sortData('category')">
+            <th >
               Category
-              <i class="sort-icon" *ngIf="sortColumn === 'category'">
-                {{ sortDirection === 'asc' ? '↑' : '↓' }}
-              </i>
             </th>
-            <th (click)="sortData('username')">
+            <th >
               Username
-              <i class="sort-icon" *ngIf="sortColumn === 'username'">
-                {{ sortDirection === 'asc' ? '↑' : '↓' }}
-              </i>
             </th>
-            <th (click)="sortData('department')">
+            <th class="responsive-hide">
               Department
-              <i class="sort-icon" *ngIf="sortColumn === 'department'">
-                {{ sortDirection === 'asc' ? '↑' : '↓' }}
-              </i>
             </th>
-            <th (click)="sortData('lastUpdate')">
+            <th class="responsive-hide">
               Last update
-              <i class="sort-icon" *ngIf="sortColumn === 'lastUpdate'">
-                {{ sortDirection === 'asc' ? '↑' : '↓' }}
-              </i>
             </th>
-            <th (click)="sortData('status')">
+            <th >
               Status
-              <i class="sort-icon" *ngIf="sortColumn === 'status'">
-                {{ sortDirection === 'asc' ? '↑' : '↓' }}
-              </i>
+            
             </th>
-            <th (click)="sortData('amount')">
+            <th >
               Amount
-              <i class="sort-icon" *ngIf="sortColumn === 'amount'">
-                {{ sortDirection === 'asc' ? '↑' : '↓' }}
-              </i>
+             
             </th>
             <th class="actions-col">Actions</th>
           </tr>
@@ -109,21 +82,21 @@
             </td>
             <td>{{ item.description }}</td>
             <td>{{ item.date }}</td>
-            <td>{{ item.category }}</td>
+            <td > <span class ="category">{{ item.category }}</span></td>
             <td class="user-col">
               <div class="user-info">
                 <div class="avatar" [style.backgroundImage]="'url(' + item.userAvatar + ')'"></div>
                 <span>{{ item.username }}</span>
               </div>
             </td>
-            <td>{{ item.department }}</td>
-            <td>{{ item.lastUpdate }}</td>
+            <td class="responsive-hide">{{ item.department }}</td>
+            <td class="responsive-hide">{{ item.lastUpdate }}</td>
             <td>
               <span class="status-badge" [class]="getStatusClass(item.status)">
                 {{ item.status }}
               </span>
             </td>
-            <td>{{ item.amount }}</td>
+            <td class="amount"> ₹ {{ item.amount }}</td>
             <td class="actions-col">
 
             </td>
@@ -134,7 +107,7 @@
 
     <div class="pagination">
       <div class="page-info">
-        Page {{ currentPage }} - 15 of {{ totalPages }}
+        Page {{ currentPage }}-15 of {{ totalPages }}
       </div>
       <div class="page-controls">
         <button class="icon-prev" (click)="prevPage()" [disabled]="currentPage === 1">

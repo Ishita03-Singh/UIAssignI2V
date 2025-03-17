@@ -29,19 +29,30 @@ header {
 
   .search-container {
     position: relative;
+    display: inline-block;
 
     input {
       padding: 8px 12px;
+      padding-left: 45px;
       border: 1px solid #e5e7eb;
-      border-radius: 4px;
+      border-radius: 8px;
       font-size: 14px;
-      width: 180px;
+      width: 300px;
 
       &:focus {
         outline: none;
         border-color: #3b82f6;
         box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
       }
+    }
+    .icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      pointer-events: none;
     }
   }
 }
@@ -50,45 +61,34 @@ header {
   border: 1px solid var(--common-border-color);
   border-radius: 12px;
   text-wrap-mode: nowrap;
+  // padding: 20px 32px;
 
-  .tabs {
+  .head {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     gap: 32px;
-    border-bottom: 1px solid var(--common-border-color);
-
 
     .tab-list {
       display: flex;
       gap: 20px;
-      border-bottom: 1px solid var(--common-border-color);
-      padding: 8px 0;
+      border-bottom: 1px solid #E3EAF4;
 
       button {
         position: relative;
         background: none;
+        font-size: 16px;
         border: none;
-        font-size: 14px;
         font-weight: 500;
-        padding: 0;
+        padding: 8px 0px;
         color: var(--text-muted);
         cursor: pointer;
 
         &.active {
           color: #1B1D21;
           font-weight: 500;
-
-          &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            height: 2px;
-            width: 100%;
-            background-color: #3DD5C8;
-          }
+          border-bottom:  3px solid #3DD5C8;
         }
       }
     }
@@ -97,28 +97,35 @@ header {
 
       display: flex;
       gap: 20px;
+      width: 100%;
       align-items: center;
       justify-content: flex-end;
 
-      .select-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 14px;
-        color: #4b5563;
-
-        select {
-          padding: 6px 12px;
+      .date-container{
+        position: relative;
+        display: inline-block;
+        input {
+          padding: 8px 8px 8px 12px;
           border: 1px solid #e5e7eb;
-          border-radius: 4px;
+          border-radius: 8px;
           font-size: 14px;
-          background-color: #ffffff;
+          width: 230px;
+          font-weight: 400;
 
           &:focus {
             outline: none;
             border-color: #3b82f6;
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
           }
+        }
+        .icon {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 24px;
+          height: 24px;
+          pointer-events: none;
         }
       }
 
@@ -137,17 +144,20 @@ header {
       td {
         padding: 0px 8px;
         text-align: left;
+        gap:10px;
         border-bottom: 1px solid #e5e7eb;
       }
 
       th {
         font-weight: 500;
+        font-size: 14px;
         color: var(--text-muted);
         cursor: pointer;
         white-space: nowrap;
         user-select: none;
         background-color: #F2F3FF;
         height: 30px;
+        border-bottom: none;
 
         &:hover {
           color: #111827;
@@ -162,17 +172,29 @@ header {
 
       td {
         height: 48px;
-        color: #111827;
+        color: #1B1D21;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 8px
       }
 
       .checkbox-col {
         width: 40px;
-        padding: 0px 8px;
+        // padding: 0px 8px;
       }
 
       .actions-col {
         width: 60px;
         text-align: center;
+      }
+      .category{
+        background-color: #EEF3F7;
+        padding: 4px 8px;
+        width:fit-content;
+        display: flex;
+        border-radius: 8px;
+        justify-content: center;
+        align-items: center;
       }
 
       .user-col {
@@ -183,8 +205,8 @@ header {
         }
 
         .avatar {
-          width: 28px;
-          height: 28px;
+          width: 32px;
+          height: 32px;
           border-radius: 50%;
           background-size: cover;
           background-position: center;
@@ -195,40 +217,43 @@ header {
       .status-badge {
         display: inline-block;
         padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: 500;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 400;
         text-transform: capitalize;
       }
 
       .status-approved {
-        background-color: #d1fae5;
-        color: #065f46;
+        background-color: #D5F6F3;
+        color: #0E3F3B;
       }
 
       .status-rejected {
-        background-color: #fee2e2;
-        color: #b91c1c;
+        background-color: #FFEBE6;
+        color: #FF3300;
       }
 
       .status-screening {
-        background-color: #fef3c7;
-        color: #92400e;
+        background-color: #FFF5CC;
+        color: #665200;
       }
 
       .status-paid {
-        background-color: #dbeafe;
-        color: #1e40af;
+        background-color: #E9F0FB;
+        color: #2056AC;
       }
 
       .status-archived {
-        background-color: #e5e7eb;
-        color: #4b5563;
+        background-color: #EEF3F7;
+        color: #555555;
       }
 
       .status-applied {
         background-color: #e0e7ff;
         color: #3730a3;
+      }
+      .amount{
+        justify-content: flex-end;
       }
 
       .btn-action {
@@ -280,6 +305,12 @@ header {
         border: none;
         background-color: #F5F5F5;
         cursor: pointer;
+        .icon-prev{
+          background-color: #F5F5F5;
+        }
+        .icon-next{
+          background-color: #F5F5F5;
+        }
 
         &:hover:not(:disabled) {
           background-color: #f9fafb;
@@ -307,17 +338,27 @@ header {
   width: 32px;
   height: 32px;
   border-radius: 50px;
-  padding: 7px;
+  padding: 10px;
   border: 1px solid var(--common-border-color);
   background-color: transparent;
   cursor: pointer;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 20px;
+    height: 20px;
   }
 
   &:hover {
     background-color: #f9fafb;
   }
+}
+
+/* Responsive behavior for screens between 0px and 1650px */
+@media (min-width: 0px) and (max-width: 1650px) {
+
+  .responsive-hide{
+    display: none;
+   
+  }
+
 }

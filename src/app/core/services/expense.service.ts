@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { IExpense } from '../models/expense.model';
 import { IUser } from '../models/user.model';
 
 @Injectable({

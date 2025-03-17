@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotificationCardComponent } from './notification-card.component';
+import { NotificationComponent } from './notification-card.component';
 
 describe('NotificationCardComponent', () => {
-  let component: NotificationCardComponent;
-  let fixture: ComponentFixture<NotificationCardComponent>;
+  let component: NotificationComponent;
+  let fixture: ComponentFixture<NotificationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NotificationCardComponent]
+      declarations: [NotificationComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(NotificationCardComponent);
+    fixture = TestBed.createComponent(NotificationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
